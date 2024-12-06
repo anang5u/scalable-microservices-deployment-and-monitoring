@@ -19,6 +19,6 @@ This setup ensures that the server retains the same IP address after rebooting o
 
 This guide covers installing PostgreSQL 16 on Ubuntu 22.04. PostgreSQL is a powerful, open-source RDBMS ideal for managing large-scale applications, offering reliability, scalability, and strong data integrity.
 
-## :writing_hand:[Monitoring PostgreSQL 16 with Prometheus and Grafana on Ubuntu 22.04 #1](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/postgres16-monitoring)
+## :writing_hand:[Monitoring PostgreSQL 16 with Prometheus and Grafana #1](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/postgres16-monitoring)
 
-This section provides a detailed guide on how to install and configure PostgreSQL 16 along with postgres_exporter. The section also includes steps for configuring both PostgreSQL and postgres_exporter to ensure proper integration with Prometheus and Grafana for effective monitoring
+This section provides a detailed guide on how to install and configure PostgreSQL 16 along with postgres_exporter in Ubuntu 22.04. The section also includes steps for configuring both PostgreSQL and postgres_exporter to ensure proper integration with Prometheus and Grafana for effective monitoring
