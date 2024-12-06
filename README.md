@@ -14,3 +14,7 @@ The challenges of conducting experiments that require multiple servers, especial
 ## [Set Static IP in Ubuntu Server 20.04](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/set-static-ip-ubuntu)
 
 This setup ensures that the server retains the same IP address after rebooting or network changes, making it essential for network stability and remote management.
+
+## [Install Postgres 16 in Ubuntu 22.04](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/install-postgres-16)
+
+This guide covers installing PostgreSQL 16 on Ubuntu 22.04. PostgreSQL is a powerful, open-source RDBMS ideal for managing large-scale applications, offering reliability, scalability, and strong data integrity.
