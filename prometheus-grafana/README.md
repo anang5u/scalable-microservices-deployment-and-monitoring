@@ -1,4 +1,4 @@
-# Monitoring PostgreSQL 16 with Prometheus and Grafana on Ubuntu 22.04 #2
+# Monitoring PostgreSQL 16 with Prometheus and Grafana on Ubuntu 20.04 #2
 
 This session will cover the installation of Prometheus and Grafana on Ubuntu 20.04 (Focal Fossa), along with the setup of a Grafana dashboard for monitoring PostgreSQL 16.
 
