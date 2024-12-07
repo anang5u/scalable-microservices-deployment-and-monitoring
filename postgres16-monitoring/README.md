@@ -1,4 +1,4 @@
-# Monitoring PostgreSQL 16 with Prometheus and Grafana on Ubuntu 22.04
+# Monitoring PostgreSQL 16 with Prometheus and Grafana on Ubuntu 22.04 #1
 
 This guide explains how to monitor PostgreSQL 16 on Ubuntu 22.04 using Prometheus and Grafana. By integrating these tools, you can collect, store, and visualize PostgreSQL metrics in real time, enabling effective performance monitoring, troubleshooting, and optimization of your database
 
