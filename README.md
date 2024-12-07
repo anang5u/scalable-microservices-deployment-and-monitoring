@@ -22,3 +22,8 @@ This guide covers installing PostgreSQL 16 on Ubuntu 22.04. PostgreSQL is a powe
 ## :writing_hand:[Monitoring PostgreSQL 16 with Prometheus and Grafana #1](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/postgres16-monitoring)
 
 This section provides a detailed guide on how to install and configure PostgreSQL 16 along with postgres_exporter in Ubuntu 22.04. The section also includes steps for configuring both PostgreSQL and postgres_exporter to ensure proper integration with Prometheus and Grafana for effective monitoring
+
+
+## :writing_hand:[Monitoring PostgreSQL 16 with Prometheus and Grafana on Ubuntu 22.04 #2](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/postgres16-monitoring)
+
+This session will cover the installation of Prometheus and Grafana on Ubuntu 20.04 (Focal Fossa), along with the setup of a Grafana dashboard for monitoring PostgreSQL 16
