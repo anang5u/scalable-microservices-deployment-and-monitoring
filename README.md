@@ -27,3 +27,7 @@ This section provides a detailed guide on how to install and configure PostgreSQ
 ## :writing_hand:[Monitoring PostgreSQL 16 with Prometheus and Grafana #2](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/prometheus-grafana)
 
 This session will cover the installation of Prometheus and Grafana on Ubuntu 20.04 (Focal Fossa), along with the setup of a Grafana dashboard for monitoring PostgreSQL 16
+
+## :writing_hand:[Monitoring Linux Host Metrics with the Node Exporter](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/server-monitoring)
+
+This guide will explain how to install and configure the Node Exporter as a systemd service to monitor Linux host metrics
