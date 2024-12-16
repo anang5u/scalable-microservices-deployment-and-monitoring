@@ -55,3 +55,99 @@ vagrant@192.168.134.250's password:
 ...
 Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-31-generic x86_64)
 ```
+
+## Using an Alternative Method
+For example, given the following configuration of your home network:
+
+```
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::e363:3ddd
+   IPv4 Address. . . . . . . . . . . : 10.50.0.175
+   Subnet Mask . . . . . . . . . . . : 255.255.254.0
+   Default Gateway . . . . . . . . . : 10.50.0.1
+```
+
+To configure a Static IP on an Ubuntu 20.04 server according to the network configuration above, follow these steps:
+
+### Identify the Network Interface
+To find the network interface in use, run the following command:
+```bash
+$ ip a
+```
+
+Find the name of the interface used for the network connection (for example, eth0, ens33 or another interface name)
+
+### Edit the Netplan Configuration
+```bash
+$ sudo nano /etc/netplan/00-installer-config.yaml
+```
+Configuration file:
+```yaml
+## 00-installer-config.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens33:  # Gantilah dengan nama interface yang sesuai
+      dhcp4: false
+      addresses:
+        - 10.50.0.100/23  # Alamat IP dengan subnet mask 255.255.254.0 (ini adalah /23)
+      gateway4: 10.50.0.1  # Default Gateway
+      nameservers:
+        addresses:
+          - 8.8.8.8  # DNS server, bisa disesuaikan dengan DNS yang Anda inginkan
+          - 8.8.4.4
+```
+
+Explanation:
+```
+addresses: Sets the static IP address to be used by the VM (in this case, 10.50.0.100/23).
+gateway4: Specifies the default gateway IP address (in this case, 10.50.0.1).
+nameservers: Specifies the DNS addresses used. You can use Google's DNS (8.8.8.8 and 8.8.4.4) or other DNS servers as needed.
+```
+
+### Apply the Configuration
+Once you've finished editing the file, save and exit the text editor. If you're using nano, press Ctrl + O to save, then Ctrl + X to exit.
+
+Now, apply the configuration you created by running the following commands:
+
+```bash
+$ sudo netplan try
+$ sudo netplan apply
+```
+
+After applying the configuration, check if the static IP has been successfully applied and if you can connect to the network by running the following command:
+
+```bash
+$ ip a
+```
+
+Ensure that the IP address 10.50.1.100 has been applied to the appropriate network interface.
+
+Also, verify that you can connect to the gateway and DNS by running the following ping commands:
+
+```bash
+$ ping 10.50.0.1  # Ping to the gateway
+$ ping 8.8.8.8    # Ping to Google DNS
+```
+
+If all steps are successful, your Ubuntu 20.04 network will be using the static IP address as per the configuration you have set.
+
+Try ping and connect via ssh from host:
+```ruby
+$ ping 10.50.0.100
+
+Pinging 10.50.0.100 with 32 bytes of data:
+Reply from 10.50.0.100: bytes=32 time=1ms TTL=64
+Reply from 10.50.0.100: bytes=32 time=1ms TTL=64
+Reply from 10.50.0.100: bytes=32 time=1ms TTL=64
+
+$ ssh vagrant@10.50.0.100
+
+ssh vagrant@10.50.0.100
+vagrant@10.50.0.100's password:
+Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-31-generic x86_64)
+...
+```
