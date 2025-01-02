@@ -31,3 +31,7 @@ This session will cover the installation of Prometheus and Grafana on Ubuntu 20.
 ## :writing_hand:[Monitoring Linux Host Metrics with the Node Exporter](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/server-monitoring)
 
 This guide will explain how to install and configure the Node Exporter as a systemd service to monitor Linux host metrics
+
+## :writing_hand:[Docker - IPvlan Network Driver](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-network)
+
+This guide demonstrates how to create a Docker container running Nginx with a static IP on an ipvlan network in Layer 2 mode

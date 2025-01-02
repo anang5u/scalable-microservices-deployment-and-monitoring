@@ -33,12 +33,6 @@ $ sudo docker network create create -d ipvlan \
   -o parent=eth0 ipvlan-network
 ```
 
-docker network create -d ipvlan \
-    --subnet=192.168.1.0/24 \
-    --gateway=192.168.1.1 \
-    -o ipvlan_mode=l2 \
-    -o parent=eth0 db_net
-
 ## Run a container attaching to ipvlan-network
 ```
 $ sudo docker run --net=ipvlan-network -it --rm alpine /bin/sh
