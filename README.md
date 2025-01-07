@@ -35,3 +35,7 @@ This guide will explain how to install and configure the Node Exporter as a syst
 ## :writing_hand:[Docker - IPvlan Network Driver](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-network)
 
 This guide demonstrates how to create a Docker container running Nginx with a static IP on an ipvlan network in Layer 2 mode
+
+## :writing_hand:[Docker - Setting Up SSH Access for Ubuntu in a Docker Container](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-ubuntu-as-container)
+
+The steps to configure SSH for remote access to an Ubuntu system running inside a Docker container
