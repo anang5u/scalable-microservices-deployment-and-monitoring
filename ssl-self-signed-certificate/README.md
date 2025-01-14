@@ -22,7 +22,7 @@ $ sudo openssl req -new -x509 -sha256 -days 365 -key ca-key.pem -out ca.pem
 $ sudo openssl x509 -in ca.pem -text
 
 # generates a 2048-bit RSA private key that is not encrypted
-$  sudo openssl genrsa -out cert-key.pem 4096
+$ sudo openssl genrsa -out cert-key.pem 4096
 $ sudo openssl req -new -sha256 -subj "/CN=Sintek" -key cert-key.pem -out cert.csr
 $ sudo sh -c 'echo "subjectAltName=DNS:*.anangsu13.com,IP:10.50.0.11,IP:10.50.0.12" >> /path/to/extfile.cnf'
 $ sudo openssl x509 -req -sha256 -days 365 -in cert.csr -CA ca.pem -CAkey ca-key.pem -out cert.pem -extfile extfile.cnf -CAcreateserial
@@ -30,7 +30,7 @@ $ ls
 ca-key.pem  ca.pem  ca.srl  cert-key.pem  cert.csr  cert.pem  extfile.cnf
 
 $ sudo sh -c 'cat cert.pem > /path/to/fullchain.pem'
-$ sudo sh -c 'cat cert.pem >> /path/to/fullchain.pem'
+$ sudo sh -c 'cat ca.pem >> /path/to/fullchain.pem'
 ```
 
 ## Nginx in Docker Container with SSL
@@ -122,3 +122,6 @@ Access nginx service with SSL
 https://10.50.0.11/
 
 ![ssl-self-hosted](ssl-self-hosted.png)
+
+Source:
+https://www.youtube.com/watch?v=VH4gXcvkmOY
