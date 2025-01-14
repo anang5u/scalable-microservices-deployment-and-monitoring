@@ -36,6 +36,10 @@ This guide will explain how to install and configure the Node Exporter as a syst
 
 This guide demonstrates how to create a Docker container running Nginx with a static IP on an ipvlan network in Layer 2 mode
 
+## :writing_hand:[SSL - Self Signed SSL Certificate](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/ssl-self-signed-certificate)
+
+This setup allows you to serve content securely over HTTPS using a self-signed SSL certificate within a Dockerized Nginx server
+
 ## :writing_hand:[Docker - Setting Up SSH Access for Ubuntu in a Docker Container](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-ubuntu-as-container)
 
 The steps to configure SSH for remote access to an Ubuntu system running inside a Docker container
