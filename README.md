@@ -7,6 +7,21 @@ This project focuses on deploying, monitoring, and automating scalable microserv
 > Replication<br>
 > Monitoring tools Prometheus/Grafana
 
+## :writing_hand:[Docker - Self Hosted Docker Registry with Self Signed SSL Certificate](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-registry)
+
+A Self-Hosted Docker Registry with a Self-Signed SSL Certificate running in a Docker container provides a private repository for storing and managing Docker images securely
+
+## :writing_hand:[SSL - Self Signed SSL Certificate](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/ssl-self-signed-certificate)
+
+This setup allows you to serve content securely over HTTPS using a self-signed SSL certificate within a Dockerized Nginx server
+
+## :writing_hand:[Docker - Setting Up SSH Access for Ubuntu in a Docker Container](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-ubuntu-as-container)
+
+The steps to configure SSH for remote access to an Ubuntu system running inside a Docker container
+
+## :writing_hand:[Docker - IPvlan Network Driver](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-network)
+
+This guide demonstrates how to create a Docker container running Nginx with a static IP on an ipvlan network in Layer 2 mode
 
 ## :writing_hand:[Setting Up Multiple Servers Locally Using Vagrant](https://github.com/anang5u/virtualization-and-development-tools/tree/main/multi-server)
 The challenges of conducting experiments that require multiple servers, especially when using cloud providers like AWS, Google Cloud, Microsoft Azure, and others. It suggests starting with local experimentation before deploying to actual server environments. The focus is on setting up three servers simultaneously using a Vagrantfile script.
@@ -31,15 +46,3 @@ This session will cover the installation of Prometheus and Grafana on Ubuntu 20.
 ## :writing_hand:[Monitoring Linux Host Metrics with the Node Exporter](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/server-monitoring)
 
 This guide will explain how to install and configure the Node Exporter as a systemd service to monitor Linux host metrics
-
-## :writing_hand:[Docker - IPvlan Network Driver](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-network)
-
-This guide demonstrates how to create a Docker container running Nginx with a static IP on an ipvlan network in Layer 2 mode
-
-## :writing_hand:[SSL - Self Signed SSL Certificate](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/ssl-self-signed-certificate)
-
-This setup allows you to serve content securely over HTTPS using a self-signed SSL certificate within a Dockerized Nginx server
-
-## :writing_hand:[Docker - Setting Up SSH Access for Ubuntu in a Docker Container](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-ubuntu-as-container)
-
-The steps to configure SSH for remote access to an Ubuntu system running inside a Docker container
