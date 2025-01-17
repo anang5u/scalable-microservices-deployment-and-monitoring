@@ -7,6 +7,10 @@ This project focuses on deploying, monitoring, and automating scalable microserv
 > Replication<br>
 > Monitoring tools Prometheus/Grafana
 
+## :writing_hand:[Jenkins - Install Jenkins as Docker Container with SSL](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/jenkins-ssl-docker-container)
+
+Install Jenkins in a Docker container with SSL by setting up a self-signed certificate for secure communication
+
 ## :writing_hand:[Docker - Self Hosted Docker Registry with Self Signed SSL Certificate](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-registry)
 
 A Self-Hosted Docker Registry with a Self-Signed SSL Certificate running in a Docker container provides a private repository for storing and managing Docker images securely

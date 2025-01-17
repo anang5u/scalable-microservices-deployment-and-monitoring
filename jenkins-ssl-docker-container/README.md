@@ -1,5 +1,7 @@
 # Install Jenkins in Docker Container with SSL
 
+Install Jenkins in a Docker container with SSL by setting up a self-signed certificate for secure communication. Use nginx as a reverse proxy to forward requests to Jenkins, enabling SSL termination and enhancing security for the web application
+
 ## Project Directory Structure
 ```
 /jenkins
