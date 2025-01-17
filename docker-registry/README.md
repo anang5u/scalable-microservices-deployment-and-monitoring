@@ -5,8 +5,6 @@ A Self-Hosted Docker Registry with a Self-Signed SSL Certificate running in a Do
 
 ## Project Directory Structure
 ```
-Dockerfile  certs  nginx.conf  start.sh
-
 /docker-registry
     Dockerfile
     /certs

@@ -151,3 +151,12 @@ vagrant@10.50.0.100's password:
 Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-31-generic x86_64)
 ...
 ```
+
+Troubleshooting:
+```
+$ ssh vagrant@192.168.1.8
+vagrant@192.168.1.8: Permission denied (publickey).
+
+[Solve] try ssh with specific path/to/private_key:
+$ ssh -i .vagrant\machines\serverhome1\virtualbox\private_key vagrant@10.50.0.100
+````
