@@ -22,7 +22,26 @@ FROM jenkins/jenkins:2.479.3-jdk17
 
 # Update dan install nginx menggunakan apt-get
 USER root
-RUN apt-get update && apt-get install -y nginx && apt-get clean
+
+# Update sistem dan install Docker dan dependencies lainnya
+RUN apt-get update && \
+    apt-get install -y \
+    nginx \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    lsb-release \
+    sudo && \
+    mkdir -m 0755 -p /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu focal stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    apt-get update && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin && \
+    apt-get clean
+
+# Verifikasi apakah Docker berhasil terinstall
+RUN docker --version
 
 # Menyalin sertifikat SSL ke dalam container
 COPY ./certs /etc/nginx/certs
@@ -86,6 +105,16 @@ http {
 ```bash
 #!/bin/sh
 
+# Atur ulimit
+# prevent ERROR : ulimit: error setting limit (Operation not permitted)
+ulimit -l unlimited
+ulimit -n 10240
+ulimit -c unlimited
+
+# Mulai Docker di background
+echo "Starting Docker..."
+service docker start &
+
 # Mulai Jenkins di background, pastikan hanya mendengarkan di localhost
 echo "Starting Jenkins..."
 java -jar /usr/share/jenkins/jenkins.war --httpListenAddress=127.0.0.1 --httpPort=8080 &
@@ -107,9 +136,10 @@ $ sudo docker build -t jenkins-proxy .
 ```
 
 ## Run Image as a Docker Container
-Run image with static IP Address with docker network ipvlan. [In this section](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-network) is about creating docker network ipvlan
+Run image with static IP Address 10.50.0.210 with docker network ipvlan. [In this section](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/docker-network) is about creating docker network ipvlan
 ```bash
 $ sudo docker run -d \
+  --privileged \
   -p 80:80 -p 443:443 \
   --name jenkins-ssl \
   --volume jenkins-data:/var/jenkins_home \
@@ -119,12 +149,24 @@ $ sudo docker run -d \
 
 # Check logs unlock jenkins
 $ sudo docker log <container-name>
+# check ulimit
+$ ulimit
+# check service nginx and docker
+$ sevice nginx status
+$ sevice docker status
+
 
 # check log nginx
 $ tail -f /var/log/nginx/error.log
 
 # ssl certificates info
 $ openssl x509 -in /etc/nginx/certs/fullchain.pem -noout -text
+
+# docker container logs
+$ sudo docker logs -f --tail 10 <container-id/name>
+
+# docker status
+$ sudo service docker status
 ```
 
 ### Create Virtual Hosts in Windows

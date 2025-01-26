@@ -15,7 +15,7 @@ The Dockerfile
 FROM ubuntu:latest
 
 # Install dependencies
-RUN apt-get update && apt-get install -y openssh-server sudo net-tools vim
+RUN apt-get update && apt-get install -y openssh-server sudo net-tools vim iputils-ping
 
 # Buat pengguna baru dengan home di /home/test dan tanpa menetapkan UID secara manual
 RUN useradd -m -d /home/test -s /bin/bash -G sudo test

@@ -24,7 +24,7 @@ $ ip a
 
 ## Create the IPvlan network
 ```bash
-$ sudo docker network create create -d ipvlan \
+$ sudo docker network create -d ipvlan \
   --subnet 10.50.0.0/23 \
   --gateway 10.50.0.1 \
   --ip-range 10.50.0.128/25 \
