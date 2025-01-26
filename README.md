@@ -7,6 +7,10 @@ This project focuses on deploying, monitoring, and automating scalable microserv
 > Replication<br>
 > Monitoring tools Prometheus/Grafana
 
+## :writing_hand:[Jenkins - Dockerfile As Build Agents](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/jenkins-agent-docker-container)
+
+Using Jenkins agents with Dockerfiles offers isolation, portability, and consistency, making it easier to manage dependencies and scale
+
 ## :writing_hand:[Jenkins - Install Jenkins as Docker Container with SSL](https://github.com/anang5u/scalable-microservices-deployment-and-monitoring/tree/main/jenkins-ssl-docker-container)
 
 Install Jenkins in a Docker container with SSL by setting up a self-signed certificate for secure communication
