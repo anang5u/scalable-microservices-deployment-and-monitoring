@@ -104,10 +104,14 @@ $ sudo docker run -d -p 80:80 -p 443:443 \
     nginx-ssl
 ```
 
-Import Private CA in Windows
+Import Private CA
  ```powershell
+# Windows
 # Run PowerShell as Adminstrator
 $ Import-Certificate -FilePath "certs/ca.pem" -CertStoreLocation Cert:\LocalMachine\Root
+
+# Linux Debian/Ubuntu
+$ /etc/ssl/certs/ca.pem
 
 
    PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\Root

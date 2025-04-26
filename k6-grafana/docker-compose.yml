@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=k6
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana2
+    ports:
+      - "3006:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+  k6:
+    image: grafana/k6
+    container_name: k6
+    depends_on:
+      - influxdb
+    volumes:
+      - ./scripts:/scripts  # Bind mount folder scripts agar bisa diubah tanpa rebuild
+    entrypoint: ["sleep", "infinity"]  # Agar container tetap berjalan dan bisa digunakan kapan saja
+
+volumes:
+  influxdb_data:
+  grafana_data:

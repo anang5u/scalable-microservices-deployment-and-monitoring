@@ -23,6 +23,12 @@ FROM jenkins/jenkins:2.479.3-jdk17
 # Update dan install nginx menggunakan apt-get
 USER root
 
+# Menambahkan 10.50.0.220 ke /etc/hosts
+# Self hosted docker registry
+RUN echo "10.50.0.220  registry.sintek.com" >> /etc/hosts
+#RUN echo "192.168.1.21  my-custom-hostname" >> /etc/#hosts && \
+#    echo "192.168.1.22  another-hostname" >> /etc/hosts
+
 # Update sistem dan install Docker dan dependencies lainnya
 RUN apt-get update && \
     apt-get install -y \
@@ -45,6 +51,12 @@ RUN docker --version
 
 # Menyalin sertifikat SSL ke dalam container
 COPY ./certs /etc/nginx/certs
+
+# Salin sertifikat CA ke dalam container
+COPY ./certs/ca.pem /usr/local/share/ca-certificates/ca.crt
+
+# Perbarui CA certificates
+RUN update-ca-certificates
 
 # Menyalin file konfigurasi Nginx yang telah disesuaikan
 COPY ./nginx.conf /etc/nginx/nginx.conf

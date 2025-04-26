@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+    # Server pertama
+    config.vm.define "server1" do |server1|
+        server1.vm.provider "virtualbox" do |vb|
+        vb.memory = "1024"     # RAM 1024MB
+        vb.cpus = 1            # 1000m CPU = 1 core, 500m CPU = 0.5 core
+        vb.customize ["createhd", "--filename", "server_NODE1_disk.vdi", "--size", 40960]  # Disk 40GB
+        vb.name = "Server_NODE1"
+    end
+    
+    server1.vm.box = "ubuntu/bionic64" # Ganti sesuai dengan box yang diinginkan
+    server1.vm.hostname = "server1"    # Nama host server 
+
+    # Tambahkan adapter kedua untuk akses host
+    server1.vm.network "private_network", ip: "192.168.56.100"
+  end
+
+end
