@@ -1,1 +1,8 @@
 /server-node1/.vagrant/
+
+# Abaikan semua file VDI (VirtualBox disk image) dan folder .vagrant
+*.vdi
+**/.vagrant/
+
+# rke2-images.tar
+*.tar
